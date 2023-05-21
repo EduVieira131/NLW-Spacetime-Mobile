@@ -56,8 +56,6 @@ export default function App() {
     const { token } = res.data
 
     await SecureStore.setItemAsync('token', token)
-
-    router.push('/memories')
   }
 
   useEffect(() => {
@@ -71,6 +69,7 @@ export default function App() {
       const { code } = response.params
 
       handleGithubOAuthCode(code)
+      router.push('/memories')
     }
   }, [response])
 
